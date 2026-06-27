@@ -21,7 +21,7 @@
     type WorkflowMode
   } from '$lib/demo-data';
 
-  let activeView = $state<ViewId>('value');
+  let activeView = $state<ViewId>('workflow');
   let workflowMode = $state<WorkflowMode>('chat');
   let selectedFile = $state(packFiles[0].path);
   let valueRan = $state(false);
@@ -107,6 +107,21 @@
     syncAddress();
   }
 
+  function runValueDemo() {
+    valueRan = true;
+    generated = true;
+    selectedFile = 'policy/egress.yaml';
+    activeView = 'value';
+    syncAddress();
+  }
+
+  function assembleDraft() {
+    generated = true;
+    activeView = 'workflow';
+    workflowMode = 'ide';
+    syncAddress();
+  }
+
   function syncAddress() {
     if (!browser) return;
 
@@ -134,20 +149,50 @@
 </svelte:head>
 
 <main class="demo-shell">
-  <section class="hero">
-    <div>
+  <section class="hero workbench-hero">
+    <div class="hero-copy">
       <p class="eyebrow">Working demo · intelligence density harness</p>
-      <h1>Bonsai Pack Builder</h1>
+      <h1>Build a verifier-gated Bonsai pack</h1>
       <p class="lede">
-        See the value first: a sensitive synthetic healthcare note stays local, Bonsai helps
-        extract dense workflow signals, the verifier blocks unsafe egress, and only a clean
-        business artifact leaves the boundary.
+        Describe the workflow, watch the pack draft beside you, approve risky writes, and keep
+        claims inside the proof envelope before anything leaves the boundary.
       </p>
+      <div class="hero-actions" aria-label="Start demo">
+        <button
+          type="button"
+          class="primary-action"
+          onclick={assembleDraft}
+        >
+          Assemble draft pack
+        </button>
+        <button type="button" onclick={runValueDemo}>Run PHI-safe value demo</button>
+      </div>
     </div>
-    <aside class="hero-proof" aria-label="Demo proof">
-      <strong>{packCompleteness}%</strong>
-      <span>draft completeness</span>
-      <small>{generatedFiles} files visible · {approvalStatus} · claim critic {criticStatus}</small>
+    <aside class="hero-workbench" aria-label="Workflow interview preview">
+      <div class="window-bar">
+        <span></span><span></span><span></span>
+        <strong>bonsai-pack-builder · new pack</strong>
+      </div>
+      <div class="mini-workbench">
+        <div class="mini-chat">
+          <p class="agent-bubble">What workflow are you trying to make safe?</p>
+          <p class="user-bubble">Referral notes in Sheets → clean summary into Slack.</p>
+          <p class="agent-bubble">Which fields must never reach Slack?</p>
+          <p class="user-bubble">Names, phone, member ID, address, family detail.</p>
+          <button type="button" class="primary-action" onclick={assembleDraft}>Assemble draft pack</button>
+        </div>
+        <div class="mini-draft" aria-label="Live draft files">
+          <p>DRAFT · packs/care-navigation-intake</p>
+          {#each packFiles.slice(0, generated ? packFiles.length : 5) as file (file.path)}
+            <code class:pending={!generated && file.risk !== 'low'}>{file.path}</code>
+          {/each}
+        </div>
+      </div>
+      <div class="hero-proof" aria-label="Demo proof">
+        <strong>{packCompleteness}%</strong>
+        <span>draft completeness</span>
+        <small>{generatedFiles} files visible · {approvalStatus} · claim critic {criticStatus}</small>
+      </div>
     </aside>
   </section>
 
@@ -211,17 +256,13 @@
             <p class="eyebrow">Before</p>
             <h3>Synthetic intake note with identifiers</h3>
             <pre><code>{syntheticSensitiveNote}</code></pre>
-            <button
-              type="button"
-              class="primary-action"
-              onclick={() => {
-                valueRan = true;
-                generated = true;
-                selectedFile = 'policy/egress.yaml';
-              }}
-            >
-              Run local value demo
-            </button>
+              <button
+                type="button"
+                class="primary-action"
+                onclick={runValueDemo}
+              >
+                Run local value demo
+              </button>
           </article>
 
           <article class="processing-card">
@@ -336,11 +377,7 @@
               <button
                 type="button"
                 class="primary-action"
-                onclick={() => {
-                  generated = true;
-                  workflowMode = 'ide';
-                  syncAddress();
-                }}
+                onclick={assembleDraft}
               >
                 Assemble draft pack
               </button>
