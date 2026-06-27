@@ -8,6 +8,7 @@ required=(
   docs/demo-assets/home-state-map.png
   docs/implementation-plan.md
   docs/completion-audit.md
+  docs/failure-analysis-and-demo-acceptance.md
   docs/prd.md
   docs/research/error-discovery-audit.md
   docs/rfcs/0001-deepagent-pack-builder.md

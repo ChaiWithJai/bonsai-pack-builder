@@ -24,6 +24,8 @@ default-deny egress. They are components, not oracles.
 
 ## What is here
 
+- [Working demo screenshots](docs/demo-assets/working-demo-ide.png) - browser proof
+  for the interactive pack builder path.
 - [Advisory brief](docs/advisory-brief.md) - the short review note for PrismML
   founders, advisors, and ecosystem reviewers.
 - [PRD](docs/prd.md) - product scope, users, MVP, acceptance criteria.
@@ -36,6 +38,7 @@ default-deny egress. They are components, not oracles.
   repo to working pack builder.
 - [Completion audit](docs/completion-audit.md) - requirement-by-requirement proof
   against the original goal.
+- [Failure analysis and demo acceptance](docs/failure-analysis-and-demo-acceptance.md).
 - [FSM screen map](docs/design/fsm-screen-map.md) - route, screen, component, and
   gate map from the wireframes.
 - [UI state model](docs/design/ui-state-model.md) - address, local, draft,
@@ -52,15 +55,25 @@ default-deny egress. They are components, not oracles.
 - [Wireframes](docs/mocks/pack-builder-wireframes.dc.html).
 - [Source index](docs/research/source-index.md).
 
-## Run the seed UI
+## Run the demo
 
 ```bash
 npm install
 npm run dev
 ```
 
-Then open the printed local URL. The current UI is a state-map dashboard, not the
-full builder.
+Then open the printed local URL. The UI is a working static demo. It lets you:
+
+- run the workflow interview and assemble a draft pack;
+- inspect the IDE-style file diff;
+- walk the guided wizard;
+- approve the write;
+- inspect the registry, evidence table, and fork path;
+- run claim lint and switch to safe copy;
+- review the CLI equivalent of the same harness.
+
+The visible state panel shows address, local, draft, server-cache, and derived
+state while you click.
 
 ## Verify
 

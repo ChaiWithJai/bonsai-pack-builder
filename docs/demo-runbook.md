@@ -1,9 +1,8 @@
 # Demo runbook
 
-This runbook shows how to review the seed repo and what a complete demo should
-show once the implementation begins.
+This runbook shows how to review the working static demo.
 
-## Current seed demo
+## Working demo
 
 Open the live demo:
 
@@ -20,39 +19,41 @@ npm install
 npm run dev
 ```
 
-Open the local URL. The current UI shows:
+Open the local URL. The UI shows:
 
-- the finite state machine;
-- the selected screen;
-- the components for that screen;
-- the trust gates for that screen;
-- the service map and current implementation state.
+- workflow interview;
+- draft pack assembly;
+- IDE-style file diff;
+- guided wizard;
+- human approval;
+- registry cards;
+- evidence table;
+- fork to PR path;
+- claim guardrails;
+- CLI interview, approval, and gates.
 
-The verified screenshot is in `docs/demo-assets/home-state-map.png`.
+Verified screenshots:
+
+- `docs/demo-assets/working-demo-ide.png`
+- `docs/demo-assets/working-demo-claims-pass.png`
+- `docs/demo-assets/working-demo-cli.png`
 
 The concrete synthetic pack is in
 `examples/care-navigation-intake/packs/care-navigation-intake`.
 
-This is a review dashboard. It is not the full pack builder.
-
-## What the full demo should show
-
-The full demo should follow this path. The user starts in the registry, creates a
-new pack, reviews the draft, approves the write, runs gates, checks claims, and
-exports a benchmark report.
-
 ## Demo script
 
-1. Start on the registry.
-2. Choose "new pack".
-3. Describe the care navigation workflow with synthetic details.
-4. Watch the agent ask bounded questions.
-5. Review the draft pack file tree.
-6. Approve the write after reading the diff.
-7. Run gates on the synthetic evals.
-8. Open the claim guardrail screen.
-9. Export the PrismML benchmark report.
-10. Show the generated business-case memo.
+1. Start on the workflow interview.
+2. Read the synthetic care-navigation job.
+3. Click "Assemble draft pack".
+4. Inspect the IDE split and select `policy/egress.yaml`.
+5. Open the guided wizard.
+6. Open human approval and click "Approve write".
+7. Open the registry and click "Prepare contribution checklist".
+8. Open claim guardrails. Note the unsafe phrases.
+9. Click "Use safe copy". Confirm publish changes from blocked to ready.
+10. Open CLI flow. Confirm the same interview, approval, gates, and benchmark
+    export appear in terminal form.
 
 ## What to say
 
@@ -76,5 +77,5 @@ Do not say this:
 - The diff is shown before write.
 - The verifier result is visible.
 - The claim critic blocks unsupported wording.
-- The benchmark export states hardware, runtime, model artifact, latency, and
-  limitations.
+- The benchmark export path names the Prism template fields and limitations.
+- The state panel shows address, local, draft, server-cache, and derived state.
