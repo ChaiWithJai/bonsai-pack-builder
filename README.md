@@ -50,6 +50,8 @@ default-deny egress. They are components, not oracles.
 - [Network topology and flows](docs/architecture/network-topology-and-flows.md).
 - [Service map](docs/service-map/service-map.md).
 - [Means, Motivation, Opportunity](docs/strategy/means-motivation-opportunity.md).
+- [PrismML proof timeline](docs/strategy/prismml-proof-timeline.md) - citation-backed
+  founder, partner, and course-delivery proof points.
 - [PrismML benchmark template](benchmark/prismml/bonsai-pack-builder-report-template.md).
 - [Care navigation sample benchmark report](benchmark/prismml/care-navigation-intake.sample-report.md).
 - [Care navigation example](examples/care-navigation-intake/README.md).

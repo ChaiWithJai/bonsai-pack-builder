@@ -7,6 +7,7 @@ This repo uses these sources as the starting evidence base.
 - `docs/research/source-deepagent-pack-builder-research.md`
 - `docs/research/source-phone-https-observability.md`
 - `docs/strategy/source-bonsai-ecosystem-plan.md`
+- `docs/strategy/prismml-proof-timeline.md`
 - `docs/mocks/pack-builder-wireframes.dc.html`
 
 ## External sources
@@ -19,7 +20,11 @@ This repo uses these sources as the starting evidence base.
 - [Nomad Pack writing packs docs](https://github.com/hashicorp/nomad-pack/blob/main/docs/writing-packs.md)
 - [Packer templates docs](https://developer.hashicorp.com/packer/docs/templates)
 - [PrismML Bonsai-demo repo](https://github.com/PrismML-Eng/Bonsai-demo)
-- [PrismML Bonsai 8B launch post](https://prismml.com/news/bonsai-8b)
+- [PrismML 1-bit Bonsai launch post](https://prismml.com/news/prismml-launches-worlds-first-1-bit-ai-model)
+- [PrismML about page](https://prismml.com/about)
+- [Caltech EE Babak Hassibi profile](https://www.ee.caltech.edu/people/hassibi)
+- [Caltech AI Bootcamp one-year report](https://engenuity.caltech.edu/stories/EAS-AI-Bootcamp-Progress-Report-One-Year-In)
+- [Cerberus Amir Salek profile](https://www.cerberus.com/our-firm/leadership/amir-salek/)
 - [Bonsai 8B GGUF on Hugging Face](https://huggingface.co/prism-ml/Bonsai-8B-gguf)
 - [Hamel Husain and Shreya Shankar LLM evals FAQ](https://hamel.dev/blog/posts/evals-faq/)
 
@@ -32,5 +37,6 @@ This repo uses these sources as the starting evidence base.
 - Packer makes builds reproducible through declared templates and ordered stages.
 - PrismML's public Bonsai materials frame the model family around 1-bit inference
   and intelligence density.
+- The PrismML proof timeline separates source-backed claims from inferred claims
+  and claims that need first-party confirmation before public use.
 - The Bonsai-demo repo is the contribution target for community benchmark reports.
-
