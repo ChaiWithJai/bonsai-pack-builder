@@ -1,4 +1,4 @@
-export type ViewId = 'workflow' | 'approval' | 'registry' | 'claims' | 'cli';
+export type ViewId = 'value' | 'workflow' | 'approval' | 'registry' | 'claims' | 'cli';
 
 export type WorkflowMode = 'chat' | 'ide' | 'wizard';
 
@@ -36,6 +36,12 @@ export const views: Array<{
   promise: string;
 }> = [
   {
+    id: 'value',
+    title: 'Value demo',
+    route: '/?view=value',
+    promise: 'Show the before, the local processing boundary, and the usable output.'
+  },
+  {
     id: 'workflow',
     title: 'Workflow interview',
     route: '/?view=workflow&mode=chat',
@@ -65,6 +71,48 @@ export const views: Array<{
     route: '/?view=cli',
     promise: 'Mirror the browser flow in terminal output for repeatable work.'
   }
+];
+
+export const syntheticSensitiveNote = `Care navigator intake note.
+
+Member: Smita Bhagat
+Callback: 201-555-0142
+Concern: foot nerve pain is disrupting work and sleep.
+Family context: her daughter can drive her to the follow-up if needed.
+Requested handoff: post a clean summary to the care team channel.`;
+
+export const cleanOutboundRecord = {
+  themes: ['pain', 'sleep disruption', 'care navigation'],
+  nextStep: 'Schedule non-urgent follow-up and send coaching resources.',
+  riskFlags: ['mobility concern', 'needs callback, but callback is redacted before egress'],
+  slackMessage:
+    'Care navigation update: member reports foot nerve pain affecting work and sleep. Follow-up should be scheduled. No direct identifiers are included.'
+};
+
+export const valueSignals = [
+  {
+    label: 'Raw note stays local',
+    detail: 'The synthetic note and redaction map are treated as local-only inputs.'
+  },
+  {
+    label: 'Bonsai proposes dense signals',
+    detail: 'The small model helps find context that simple regex would miss, such as family detail.'
+  },
+  {
+    label: 'Verifier owns the boundary',
+    detail: 'The outbound payload is rescanned. Egress stays blocked until residual identifiers are zero.'
+  },
+  {
+    label: 'Clean output becomes useful',
+    detail: 'The team gets themes, next step, risk flags, and a reusable pack with evidence.'
+  }
+];
+
+export const valueProof = [
+  { metric: '0', label: 'identifiers cross the boundary' },
+  { metric: '6', label: 'pack files generated from one workflow' },
+  { metric: '5', label: 'gate and evidence checks visible' },
+  { metric: '1', label: 'benchmark contribution path' }
 ];
 
 export const workflowModes: Array<{

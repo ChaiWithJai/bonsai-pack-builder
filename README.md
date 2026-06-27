@@ -24,8 +24,10 @@ default-deny egress. They are components, not oracles.
 
 ## What is here
 
-- [Working demo screenshots](docs/demo-assets/working-demo-ide.png) - browser proof
-  for the interactive pack builder path.
+- [Working value demo screenshot](docs/demo-assets/working-demo-value-after.png) -
+  browser proof for the sensitive-note to clean-artifact path.
+- [Working pack builder screenshot](docs/demo-assets/working-demo-ide.png) - proof
+  for the interactive pack inspection path.
 - [Advisory brief](docs/advisory-brief.md) - the short review note for PrismML
   founders, advisors, and ecosystem reviewers.
 - [PRD](docs/prd.md) - product scope, users, MVP, acceptance criteria.

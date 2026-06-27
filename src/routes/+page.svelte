@@ -6,10 +6,14 @@
     blockedClaims,
     claimRules,
     cliTranscript,
+    cleanOutboundRecord,
     gateRuns,
     interviewMessages,
     packFiles,
     registryPacks,
+    syntheticSensitiveNote,
+    valueProof,
+    valueSignals,
     views,
     wizardStages,
     workflowModes,
@@ -17,9 +21,10 @@
     type WorkflowMode
   } from '$lib/demo-data';
 
-  let activeView = $state<ViewId>('workflow');
+  let activeView = $state<ViewId>('value');
   let workflowMode = $state<WorkflowMode>('chat');
   let selectedFile = $state(packFiles[0].path);
+  let valueRan = $state(false);
   let generated = $state(false);
   let approved = $state(false);
   let criticRan = $state(false);
@@ -33,10 +38,10 @@
   const unsafeClaims = $derived(
     claimRules.filter((rule) => claimDraft.toLowerCase().includes(rule.match))
   );
-  const packCompleteness = $derived(generated ? 100 : 58);
+  const packCompleteness = $derived(valueRan || generated ? 100 : 58);
   const approvalStatus = $derived(approved ? 'approved' : 'waiting for human');
   const criticStatus = $derived(unsafeClaims.length === 0 ? 'pass' : criticRan ? 'blocked' : 'not run');
-  const canPublish = $derived(generated && approved && unsafeClaims.length === 0);
+  const canPublish = $derived((valueRan || generated) && approved && unsafeClaims.length === 0);
   const queryPreview = $derived(
     `?view=${activeView}${activeView === 'workflow' ? `&mode=${workflowMode}` : ''}`
   );
@@ -45,7 +50,7 @@
       ? 'high'
       : 'medium'
   );
-  const generatedFiles = $derived(generated ? packFiles.length : 2);
+  const generatedFiles = $derived(valueRan || generated ? packFiles.length : 2);
 
   onMount(() => {
     const params = new URLSearchParams(window.location.search);
@@ -112,9 +117,9 @@
       <p class="eyebrow">Working demo · intelligence density harness</p>
       <h1>Bonsai Pack Builder</h1>
       <p class="lede">
-        Convert a healthcare operations workflow into a declarative pack, route model output
-        through human approval and verifier gates, then export evidence for Prism-style Bonsai
-        benchmarks.
+        See the value first: a sensitive synthetic healthcare note stays local, Bonsai helps
+        extract dense workflow signals, the verifier blocks unsafe egress, and only a clean
+        business artifact leaves the boundary.
       </p>
     </div>
     <aside class="hero-proof" aria-label="Demo proof">
@@ -174,7 +179,106 @@
     </aside>
 
     <section class="active-panel">
-      {#if activeView === 'workflow'}
+      {#if activeView === 'value'}
+        <div class="panel-heading">
+          <p class="eyebrow">Actual value demo</p>
+          <h2>From sensitive note to usable team artifact</h2>
+        </div>
+        <section class="value-grid">
+          <article class="raw-note">
+            <p class="eyebrow">Before</p>
+            <h3>Synthetic intake note with identifiers</h3>
+            <pre><code>{syntheticSensitiveNote}</code></pre>
+            <button
+              type="button"
+              class="primary-action"
+              onclick={() => {
+                valueRan = true;
+                generated = true;
+                selectedFile = 'policy/egress.yaml';
+              }}
+            >
+              Run local value demo
+            </button>
+          </article>
+
+          <article class="processing-card">
+            <p class="eyebrow">Signal processing</p>
+            <h3>What the harness does</h3>
+            <div class="value-signals">
+              {#each valueSignals as signal, index (signal.label)}
+                <section class:active={valueRan || index < 1}>
+                  <span>{index + 1}</span>
+                  <div>
+                    <strong>{signal.label}</strong>
+                    <p>{signal.detail}</p>
+                  </div>
+                </section>
+              {/each}
+            </div>
+          </article>
+
+          <article class="clean-output" class:revealed={valueRan}>
+            <p class="eyebrow">After</p>
+            <h3>Clean record that can leave the boundary</h3>
+            {#if valueRan}
+              <dl>
+                <div>
+                  <dt>Themes</dt>
+                  <dd>{cleanOutboundRecord.themes.join(', ')}</dd>
+                </div>
+                <div>
+                  <dt>Next step</dt>
+                  <dd>{cleanOutboundRecord.nextStep}</dd>
+                </div>
+                <div>
+                  <dt>Risk flags</dt>
+                  <dd>{cleanOutboundRecord.riskFlags.join('; ')}</dd>
+                </div>
+              </dl>
+              <blockquote>{cleanOutboundRecord.slackMessage}</blockquote>
+            {:else}
+              <p class="muted">Run the demo to reveal the outbound record.</p>
+            {/if}
+          </article>
+
+          <article class="business-case" class:revealed={valueRan}>
+            <p class="eyebrow">Why this matters</p>
+            <h3>Business case, not just tooling</h3>
+            {#if valueRan}
+              <p>
+                A team can use AI without sending raw workflow notes to shared tools. The same
+                run also produces the pack files, safe claim language, gate evidence, and a
+                benchmark report path that a leader or ecosystem maintainer can review.
+              </p>
+              <div class="proof-grid">
+                {#each valueProof as proof (proof.label)}
+                  <section>
+                    <strong>{proof.metric}</strong>
+                    <span>{proof.label}</span>
+                  </section>
+                {/each}
+              </div>
+              <button
+                type="button"
+                class="primary-action"
+                onclick={() => {
+                  activeView = 'workflow';
+                  workflowMode = 'ide';
+                  syncAddress();
+                }}
+              >
+                Inspect the generated pack
+              </button>
+            {:else}
+              <p class="muted">
+                The proof is hidden until the local processing step runs, because the value is the
+                safe transformation, not the UI chrome.
+              </p>
+            {/if}
+          </article>
+        </section>
+      {:else if activeView === 'workflow'}
         <div class="panel-heading">
           <p class="eyebrow">Wireframes 1A · 1B · 1C</p>
           <h2>Workflow interview to draft pack</h2>

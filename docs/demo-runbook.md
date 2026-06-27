@@ -21,6 +21,10 @@ npm run dev
 
 Open the local URL. The UI shows:
 
+- a value demo with a synthetic sensitive note;
+- local signal processing and verifier boundary;
+- a clean outbound team artifact;
+- a business case and extension path;
 - workflow interview;
 - draft pack assembly;
 - IDE-style file diff;
@@ -34,6 +38,8 @@ Open the local URL. The UI shows:
 
 Verified screenshots:
 
+- `docs/demo-assets/working-demo-value-after.png`
+- `docs/demo-assets/working-demo-value-mobile.png`
 - `docs/demo-assets/working-demo-ide.png`
 - `docs/demo-assets/working-demo-claims-pass.png`
 - `docs/demo-assets/working-demo-cli.png`
@@ -44,15 +50,16 @@ The concrete synthetic pack is in
 ## Demo script
 
 1. Start on the workflow interview.
-2. Read the synthetic care-navigation job.
-3. Click "Assemble draft pack".
-4. Inspect the IDE split and select `policy/egress.yaml`.
-5. Open the guided wizard.
-6. Open human approval and click "Approve write".
-7. Open the registry and click "Prepare contribution checklist".
-8. Open claim guardrails. Note the unsafe phrases.
-9. Click "Use safe copy". Confirm publish changes from blocked to ready.
-10. Open CLI flow. Confirm the same interview, approval, gates, and benchmark
+2. Click "Run local value demo".
+3. Point to the before/process/after transformation.
+4. Click "Inspect the generated pack".
+5. Inspect the IDE split and select `policy/egress.yaml`.
+6. Open the guided wizard.
+7. Open human approval and click "Approve write".
+8. Open the registry and click "Prepare contribution checklist".
+9. Open claim guardrails. Note the unsafe phrases.
+10. Click "Use safe copy". Confirm publish changes from blocked to ready.
+11. Open CLI flow. Confirm the same interview, approval, gates, and benchmark
     export appear in terminal form.
 
 ## What to say

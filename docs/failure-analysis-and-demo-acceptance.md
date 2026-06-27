@@ -7,6 +7,10 @@ Date: June 27, 2026
 The previous pass shipped a review packet. That was useful after a demo, but it was
 not the demo.
 
+The next pass fixed the click paths, but still had a product problem. It started
+with the pack-builder machinery. A reviewer could click the harness, but still had
+to infer the value.
+
 The user asked for a working demo that followed the wireframes. I shipped:
 
 - a state map;
@@ -38,10 +42,20 @@ Can a reviewer click through the product story and see the harness produce a pac
 approval moment, gate result, claim boundary, and benchmark export?
 ```
 
+The stronger completion test is:
+
+```text
+Can a reviewer understand the value before the architecture: sensitive synthetic
+workflow in, local signal processing and verifier boundary in the middle, clean
+business artifact out, plus a clear path to reuse the pack?
+```
+
 ## Correct acceptance checklist
 
 The demo must cover every wireframe pathway:
 
+- 0. Value demo: synthetic sensitive note, local processing boundary, clean
+  outbound record, business case, and extension path.
 - 1A. Conversational workflow interview with a live draft.
 - 1B. IDE split where the agent edits files and the user watches.
 - 1C. Guided wizard through source, recognize, verify, structure, publish.
@@ -66,6 +80,7 @@ The demo must also show:
 - server cache state;
 - derived state;
 - service map state;
+- a before/after proof of value;
 - a deterministic generated pack;
 - a deterministic gate result;
 - a benchmark export path;
@@ -81,4 +96,3 @@ Before calling the demo complete, run:
 - `npm run pack:check`
 - a Playwright click-through of each major screen;
 - a live Pages check that the demo contains the interactive pathways.
-
