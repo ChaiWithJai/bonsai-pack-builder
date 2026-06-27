@@ -3,6 +3,8 @@
 A Deep Agents and SvelteKit seed repo for turning regulated workflow pain into
 verifier-gated Bonsai packs.
 
+Live demo: [chaiwithjai.github.io/bonsai-pack-builder](https://chaiwithjai.github.io/bonsai-pack-builder/)
+
 This is the next ecosystem artifact after the iPhone PHI scrubber demo. The prior
 demo proved a narrow workflow. A user can capture a synthetic note, scrub
 identifiers inside a first-party edge boundary, run a verifier gate, and send only
@@ -67,6 +69,12 @@ npm run check
 npm run build
 npm run docs:check
 npm run pack:check
+```
+
+The public static demo is built with:
+
+```bash
+npm run build:pages
 ```
 
 ## Guardrails

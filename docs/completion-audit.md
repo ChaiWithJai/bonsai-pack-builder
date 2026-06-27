@@ -26,9 +26,21 @@ This file tracks the original goal against the current repo.
 | Seed a plan to act on PRD/RFC | `docs/implementation-plan.md` | done |
 | Demonstrate Prism founder thesis | `docs/advisory-brief.md` and `docs/strategy/means-motivation-opportunity.md` | done |
 | Contribute back to Bonsai-demo benchmark template | `benchmark/prismml/README.md` and report template | planned |
+| Provide a concrete synthetic pack | `examples/care-navigation-intake/packs/care-navigation-intake/` | done |
+| Provide a sample benchmark report | `benchmark/prismml/care-navigation-intake.sample-report.md` | done |
+| Publish a live reviewable demo | `https://chaiwithjai.github.io/bonsai-pack-builder/` | done |
+| Verify the pack shape | `npm run pack:check` | done |
 
 ## Remaining implementation work
 
 This repo is now a complete seed and review artifact. It is not yet the full pack
 builder app. The next implementation work is tracked in `docs/implementation-plan.md`.
 
+## Latest verified gates
+
+- `npm run check`
+- `npm run build`
+- `npm run docs:check`
+- `npm run pack:check`
+- GitHub Pages served the review packet with the synthetic pack and sample benchmark
+  report links.

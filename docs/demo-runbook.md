@@ -5,6 +5,14 @@ show once the implementation begins.
 
 ## Current seed demo
 
+Open the live demo:
+
+```text
+https://chaiwithjai.github.io/bonsai-pack-builder/
+```
+
+Or run it locally:
+
 Run:
 
 ```bash
