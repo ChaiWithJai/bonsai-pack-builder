@@ -42,6 +42,28 @@
   const approvalStatus = $derived(approved ? 'approved' : 'waiting for human');
   const criticStatus = $derived(unsafeClaims.length === 0 ? 'pass' : criticRan ? 'blocked' : 'not run');
   const canPublish = $derived((valueRan || generated) && approved && unsafeClaims.length === 0);
+  const claimGateStatus = $derived(unsafeClaims.length === 0 ? 'pass' : 'needs-review');
+  const displayedGateRuns = $derived(
+    gateRuns.map((gate) =>
+      gate.id === 'claim-critic'
+        ? {
+            ...gate,
+            status: claimGateStatus,
+            evidence:
+              claimGateStatus === 'pass'
+                ? 'Claim copy cites scrubbed synthetic workflow proof without overclaiming.'
+                : gate.evidence
+          }
+        : gate
+    )
+  );
+  const displayedCliTranscript = $derived(
+    cliTranscript.map((line) =>
+      line.startsWith('REVIEW claim-critic') && claimGateStatus === 'pass'
+        ? 'PASS claim-critic: safe copy stays inside proof envelope'
+        : line
+    )
+  );
   const queryPreview = $derived(
     `?view=${activeView}${activeView === 'workflow' ? `&mode=${workflowMode}` : ''}`
   );
@@ -515,7 +537,7 @@
           <h2>CLI interview, approval, gates</h2>
         </div>
         <section class="terminal-card" aria-label="CLI transcript">
-          {#each cliTranscript as line (line)}
+          {#each displayedCliTranscript as line (line)}
             <code class:pass={line.startsWith('PASS')} class:review={line.startsWith('REVIEW')}>
               {line}
             </code>
@@ -531,7 +553,7 @@
       <h2>Verifier and benchmark state</h2>
     </div>
     <div class="gates">
-      {#each gateRuns as gate (gate.id)}
+      {#each displayedGateRuns as gate (gate.id)}
         <article class={gate.status}>
           <span>{gate.status}</span>
           <h3>{gate.label}</h3>
