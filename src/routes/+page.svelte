@@ -22,8 +22,10 @@
       benchmark evidence, and publish-safe business-case copy.
     </p>
     <div class="hero-actions">
+      <a href="https://github.com/ChaiWithJai/bonsai-pack-builder/blob/main/docs/advisory-brief.md">Advisory brief</a>
       <a href="https://github.com/ChaiWithJai/bonsai-pack-builder/blob/main/docs/prd.md">Read PRD</a>
       <a href="https://github.com/ChaiWithJai/bonsai-pack-builder/blob/main/docs/rfcs/0001-deepagent-pack-builder.md">Read RFC</a>
+      <a href="https://github.com/ChaiWithJai/bonsai-pack-builder/blob/main/docs/demo-runbook.md">Demo runbook</a>
     </div>
   </section>
 
@@ -57,6 +59,15 @@
       </ul>
       <h3>Components</h3>
       <p>{selectedScreen.components.join(' · ')}</p>
+      <h3>State</h3>
+      <div class="state-grid">
+        {#each Object.entries(selectedScreen.state) as [owner, values] (owner)}
+          <section>
+            <strong>{owner}</strong>
+            <span>{values.join(', ')}</span>
+          </section>
+        {/each}
+      </div>
       <h3>Trust gates</h3>
       <ul>
         {#each selectedScreen.gates as gate (gate)}

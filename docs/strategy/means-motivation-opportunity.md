@@ -41,11 +41,9 @@ The builder wants:
 
 ## Opportunity
 
-The ecosystem opening is a pack and evidence loop:
-
-```text
-workflow -> pack -> eval -> proof -> story -> contribution
-```
+The ecosystem opening is a pack and evidence loop. A user starts with a workflow,
+turns it into a pack, runs an eval, collects proof, writes the story, and prepares
+a contribution.
 
 Nomad Pack made operational workloads shareable. Packer made machine images
 reproducible. Bonsai Pack Builder can make regulated AI workflow boundaries
@@ -55,4 +53,3 @@ This demonstrates Prism's founders' thesis in adoption terms: useful intelligenc
 per unit hardware, power, and workflow friction. The first win is not "Bonsai beats
 frontier cloud." The win is "a small model inside a correct harness lets a sensitive
 workflow stay closer to the data."
-

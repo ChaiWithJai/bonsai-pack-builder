@@ -3,7 +3,13 @@ set -euo pipefail
 
 required=(
   README.md
+  docs/advisory-brief.md
+  docs/demo-runbook.md
+  docs/demo-assets/home-state-map.png
+  docs/implementation-plan.md
+  docs/completion-audit.md
   docs/prd.md
+  docs/research/error-discovery-audit.md
   docs/rfcs/0001-deepagent-pack-builder.md
   docs/design/fsm-screen-map.md
   docs/design/ui-state-model.md
@@ -11,6 +17,7 @@ required=(
   docs/architecture/network-topology-and-flows.md
   docs/service-map/service-map.md
   docs/strategy/means-motivation-opportunity.md
+  docs/research/source-index.md
   benchmark/prismml/bonsai-pack-builder-report-template.md
 )
 

@@ -32,7 +32,12 @@ shape of:
 Create a SvelteKit UI and Deep Agents backend with these stages:
 
 ```text
-source -> recognize -> verify -> structure -> publish -> contribute
+source
+recognize
+verify
+structure
+publish
+contribute
 ```
 
 The generated pack shape:
@@ -117,4 +122,3 @@ MVP proof requires:
 - Should the first Deep Agents implementation be a SvelteKit server route or a
   separate Node package under `packages/deepagents-harness`?
 - What benchmark fields should be submitted upstream to PrismML first?
-

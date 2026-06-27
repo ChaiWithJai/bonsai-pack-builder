@@ -17,6 +17,21 @@ export const screens: Screen[] = [
     gates: ['No real PHI in examples', 'Claims must link to evidence']
   },
   {
+    id: 'pack-detail',
+    route: '/pack/:packId',
+    title: 'Pack detail and contribution',
+    renders: ['Pack README', 'gate history', 'fork path', 'PR checklist'],
+    components: ['PackReadme', 'GateHealthPanel', 'ForkPackButton', 'ContributionChecklist'],
+    state: {
+      address: ['packId', 'tab'],
+      local: ['activeSection', 'expandedGateId'],
+      draft: ['forkIntent'],
+      'server-cache': ['packMetadata', 'gateHistory', 'benchmarkReports'],
+      derived: ['forkReadiness', 'missingContributionEvidence']
+    },
+    gates: ['Forks inherit guardrails', 'Contribution copy must cite run evidence']
+  },
+  {
     id: 'workflow-interview',
     route: '/new?step=source',
     title: 'Workflow interview to draft pack',
@@ -30,6 +45,66 @@ export const screens: Screen[] = [
       derived: ['missingAnswers', 'packCompleteness', 'riskTier']
     },
     gates: ['Synthetic examples only', 'HITL before writing pack files']
+  },
+  {
+    id: 'recognizer-stage',
+    route: '/new?step=recognize',
+    title: 'Recognizer stage',
+    renders: ['Identifier catalog', 'Bonsai proposals', 'manual accept and reject controls'],
+    components: ['RecognizerCatalog', 'BonsaiProposalPanel', 'RecognizerDecisionList'],
+    state: {
+      address: ['step', 'draftId'],
+      local: ['selectedRecognizerId', 'showRejected'],
+      draft: ['acceptedRecognizers', 'rejectedRecognizers', 'reviewNotes'],
+      'server-cache': ['recognizerCatalog', 'modelProposalRun'],
+      derived: ['coverageByIdentifierType', 'unreviewedModelSuggestions']
+    },
+    gates: ['Model proposals are advisory', 'Human must approve recognizer set']
+  },
+  {
+    id: 'policy-stage',
+    route: '/new?step=verify',
+    title: 'Verifier and policy stage',
+    renders: ['Default-deny policy', 'egress controls', 'risk tier'],
+    components: ['PolicyEditor', 'EgressRuleList', 'RiskTierSummary'],
+    state: {
+      address: ['step', 'draftId'],
+      local: ['expandedPolicyRule'],
+      draft: ['policyYaml', 'egressRules'],
+      'server-cache': ['policyTemplates', 'priorIncidentRules'],
+      derived: ['weakPolicyWarnings', 'requiredApprovalLevel']
+    },
+    gates: ['Default-deny egress', 'Verifier cannot be weakened by pack files']
+  },
+  {
+    id: 'schema-stage',
+    route: '/new?step=structure',
+    title: 'Clean record schema stage',
+    renders: ['JSON schema editor', 'clean payload preview', 'sink mapping'],
+    components: ['SchemaEditor', 'CleanPayloadPreview', 'SinkMappingPanel'],
+    state: {
+      address: ['step', 'draftId'],
+      local: ['selectedSchemaField'],
+      draft: ['recordSchema', 'sinkMapping'],
+      'server-cache': ['schemaTemplates', 'sinkTemplates'],
+      derived: ['schemaCompleteness', 'unsafeSinkFields']
+    },
+    gates: ['Sink only sees clean record fields', 'Raw text and redaction map stay out of sink']
+  },
+  {
+    id: 'draft-workspace',
+    route: '/draft/:draftId',
+    title: 'Draft pack workspace',
+    renders: ['IDE split', 'pack file tree', 'agent todo list', 'unsaved file editor'],
+    components: ['PackFileTree', 'AgentTodoList', 'FileEditor', 'UnsavedChangesBar'],
+    state: {
+      address: ['draftId', 'file'],
+      local: ['openFolders', 'cursorPosition'],
+      draft: ['scratchFiles', 'unsavedEdits', 'agentTodos'],
+      'server-cache': ['packSchema', 'validationRules'],
+      derived: ['changedFiles', 'filesRequiringApproval']
+    },
+    gates: ['Scratch first', 'No final write without approval']
   },
   {
     id: 'approval',
@@ -75,6 +150,21 @@ export const screens: Screen[] = [
       derived: ['failureThemes', 'benchmarkTemplateCompleteness']
     },
     gates: ['Evidence before claims', 'Exporter must name limitations']
+  },
+  {
+    id: 'benchmark-export',
+    route: '/runs/:runId/export',
+    title: 'PrismML benchmark export',
+    renders: ['Report fields', 'template completeness', 'copy to PR controls'],
+    components: ['BenchmarkReportEditor', 'TemplateCompletenessMeter', 'UpstreamChecklist'],
+    state: {
+      address: ['runId', 'format'],
+      local: ['expandedSection'],
+      draft: ['benchmarkMarkdown'],
+      'server-cache': ['gateRun', 'hardwareProfile', 'runtimeProfile'],
+      derived: ['missingBenchmarkFields', 'upstreamPrReadiness']
+    },
+    gates: ['Report limitations', 'Use synthetic inputs only', 'State verifier result']
   }
 ];
 
@@ -120,4 +210,3 @@ export const services: Service[] = [
     nextProof: 'Filled care-navigation benchmark report under benchmark/prismml/.'
   }
 ];
-

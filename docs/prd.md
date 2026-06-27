@@ -16,8 +16,8 @@ the primary autonomous agent brain.
 
 ## Problem
 
-The prior PHI scrubber demo proved that the hard part is not only model inference.
-The hard part is the harness:
+The prior PHI scrubber demo showed that model inference is only one part of the
+problem. The harder part is the harness:
 
 - setting the privacy boundary before inference;
 - forcing synthetic examples;
@@ -102,4 +102,3 @@ This demonstrates Prism's intelligence-density thesis at the workflow level: use
 intelligence per unit of hardware, power, and integration friction. The deliverable
 is not a leaderboard claim. It is a reproducible pack that shows who can now do
 what locally, with evidence.
-
