@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { screens, services } from '$lib/state-model';
+  import { reviewArtifacts, screens, services } from '$lib/state-model';
 
   let selected = $state(screens[1]?.id ?? screens[0].id);
   let selectedScreen = $derived(screens.find((screen) => screen.id === selected) ?? screens[0]);
@@ -75,6 +75,18 @@
         {/each}
       </ul>
     </article>
+  </section>
+
+  <section class="panel">
+    <h2>Review packet</h2>
+    <div class="artifacts">
+      {#each reviewArtifacts as artifact (artifact.href)}
+        <a href={artifact.href}>
+          <strong>{artifact.title}</strong>
+          <span>{artifact.description}</span>
+        </a>
+      {/each}
+    </div>
   </section>
 
   <section class="panel">

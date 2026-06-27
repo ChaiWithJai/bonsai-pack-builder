@@ -10,7 +10,8 @@
     "build:pages": "BASE_PATH=/bonsai-pack-builder vite build",
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-    "docs:check": "bash scripts/check-docs.sh"
+    "docs:check": "bash scripts/check-docs.sh",
+    "pack:check": "node scripts/validate-example-pack.mjs"
   },
   "dependencies": {
     "@sveltejs/adapter-auto": "^6.0.0",

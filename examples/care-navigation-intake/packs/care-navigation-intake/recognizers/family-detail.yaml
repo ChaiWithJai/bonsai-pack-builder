@@ -1,0 +1,13 @@
+id: family-detail
+description: Family details that can identify a person in context.
+examples:
+  - daughter just started college
+  - spouse works at the clinic
+  - sister is the emergency contact
+model_assist:
+  tool: bonsai.propose
+  role: propose_contextual_family_spans
+  trusted: false
+review:
+  human_required: true
+

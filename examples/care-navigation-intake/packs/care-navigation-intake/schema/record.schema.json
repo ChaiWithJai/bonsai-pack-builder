@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CareNavigationCleanRecord",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["summary", "themes", "follow_up", "risk_flags", "verifier"],
+  "properties": {
+    "summary": {
+      "type": "string",
+      "description": "Clean summary with identifiers removed."
+    },
+    "themes": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "follow_up": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["needed", "scheduled"],
+      "properties": {
+        "needed": { "type": "boolean" },
+        "scheduled": { "type": "boolean" }
+      }
+    },
+    "risk_flags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "verifier": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["gate_pass", "residual_identifier_count"],
+      "properties": {
+        "gate_pass": { "type": "boolean" },
+        "residual_identifier_count": { "type": "integer", "minimum": 0 }
+      }
+    }
+  }
+}
+

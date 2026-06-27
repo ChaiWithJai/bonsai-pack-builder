@@ -1,0 +1,22 @@
+default: deny
+allow_when:
+  - verifier.gate_pass == true
+  - verifier.residual_identifier_count == 0
+blocked_fields:
+  - raw_note
+  - redaction_map
+  - original_identifiers
+  - model_thinking
+sink_policy:
+  slack:
+    allowed_fields:
+      - summary
+      - themes
+      - follow_up
+      - risk_flags
+      - verifier
+approval:
+  write_pack: human_required
+  run_eval: human_required
+  send_sink: disabled_in_seed
+

@@ -1,0 +1,14 @@
+id: contact
+description: Contact details that should not leave the first-party boundary.
+patterns:
+  - kind: phone
+    regex: "\\b(?:\\+1[-. ]?)?\\(?\\d{3}\\)?[-. ]?\\d{3}[-. ]?\\d{4}\\b"
+  - kind: email
+    regex: "\\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}\\b"
+    flags:
+      - case_insensitive
+model_assist:
+  tool: bonsai.propose
+  role: propose_contact_like_spans
+  trusted: false
+

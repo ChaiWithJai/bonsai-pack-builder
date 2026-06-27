@@ -1,0 +1,17 @@
+name: care-navigation-intake
+version: 0.1.0
+domain: healthcare-care-navigation
+status: synthetic-example
+owner: Chai With Jai
+description: Scrub synthetic referral notes before a clean care-navigation summary reaches a team sink.
+runtime_targets:
+  - mac-edge
+  - browser-gpu-benchmark
+  - future-mlx-ios
+guardrails:
+  synthetic_only: true
+  verifier_required: true
+  raw_input_leaves_device: false
+  legal_deidentification_claim: false
+  compliance_claim: false
+

@@ -1,0 +1,13 @@
+type: slack
+mode: simulated
+channel_variable: sink_channel
+payload_template:
+  summary: "{{summary}}"
+  themes: "{{themes}}"
+  follow_up: "{{follow_up}}"
+  risk_flags: "{{risk_flags}}"
+  verifier: "{{verifier}}"
+notes:
+  - This seed pack does not send to Slack.
+  - Production sinks require separate approval and secret handling.
+

@@ -44,7 +44,9 @@ default-deny egress. They are components, not oracles.
 - [Service map](docs/service-map/service-map.md).
 - [Means, Motivation, Opportunity](docs/strategy/means-motivation-opportunity.md).
 - [PrismML benchmark template](benchmark/prismml/bonsai-pack-builder-report-template.md).
+- [Care navigation sample benchmark report](benchmark/prismml/care-navigation-intake.sample-report.md).
 - [Care navigation example](examples/care-navigation-intake/README.md).
+- [Care navigation synthetic pack](examples/care-navigation-intake/packs/care-navigation-intake/README.md).
 - [Wireframes](docs/mocks/pack-builder-wireframes.dc.html).
 - [Source index](docs/research/source-index.md).
 
@@ -64,6 +66,7 @@ full builder.
 npm run check
 npm run build
 npm run docs:check
+npm run pack:check
 ```
 
 ## Guardrails

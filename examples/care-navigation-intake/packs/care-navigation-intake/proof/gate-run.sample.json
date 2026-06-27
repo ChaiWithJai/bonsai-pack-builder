@@ -1,0 +1,22 @@
+{
+  "pack": "care-navigation-intake",
+  "status": "sample",
+  "synthetic_only": true,
+  "runtime": "mac-edge",
+  "model_artifact": "prism-ml/Bonsai family placeholder",
+  "verifier": {
+    "gate_pass": true,
+    "residual_identifier_count": 0
+  },
+  "latency_ms": {
+    "scrub": 14024,
+    "structure": 2593,
+    "total": 16650
+  },
+  "limitations": [
+    "Sample evidence is copied from prior demo shape.",
+    "This pack has not run through a live Deep Agents implementation yet.",
+    "Production sinks are disabled in this seed."
+  ]
+}
+

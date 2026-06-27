@@ -22,6 +22,9 @@ Open the local URL. The current UI shows:
 
 The verified screenshot is in `docs/demo-assets/home-state-map.png`.
 
+The concrete synthetic pack is in
+`examples/care-navigation-intake/packs/care-navigation-intake`.
+
 This is a review dashboard. It is not the full pack builder.
 
 ## What the full demo should show

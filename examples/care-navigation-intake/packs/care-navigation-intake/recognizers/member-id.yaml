@@ -1,0 +1,10 @@
+id: member-id
+description: Local member or referral identifiers.
+patterns:
+  - kind: member_id
+    regex: "\\b(?:CM|REF|MEM)-\\d{4,8}\\b"
+model_assist:
+  tool: bonsai.propose
+  role: propose_identifier_like_spans
+  trusted: false
+

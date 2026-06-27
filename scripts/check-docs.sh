@@ -19,6 +19,9 @@ required=(
   docs/strategy/means-motivation-opportunity.md
   docs/research/source-index.md
   benchmark/prismml/bonsai-pack-builder-report-template.md
+  benchmark/prismml/care-navigation-intake.sample-report.md
+  examples/care-navigation-intake/packs/care-navigation-intake/metadata.yaml
+  examples/care-navigation-intake/packs/care-navigation-intake/eval/golden.jsonl
 )
 
 for file in "${required[@]}"; do

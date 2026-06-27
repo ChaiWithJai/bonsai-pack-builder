@@ -21,3 +21,8 @@ export type Service = {
   nextProof: string;
 };
 
+export type ReviewArtifact = {
+  title: string;
+  href: string;
+  description: string;
+};

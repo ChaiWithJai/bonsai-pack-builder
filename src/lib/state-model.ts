@@ -1,4 +1,4 @@
-import type { Screen, Service } from './types';
+import type { ReviewArtifact, Screen, Service } from './types';
 
 export const screens: Screen[] = [
   {
@@ -207,6 +207,29 @@ export const services: Service[] = [
     runsWhere: 'CLI or server action',
     status: 'seeded',
     responsibility: 'Write PR-ready benchmark markdown for PrismML-Eng/Bonsai-demo templates.',
-    nextProof: 'Filled care-navigation benchmark report under benchmark/prismml/.'
+    nextProof: 'Care-navigation sample report exists under benchmark/prismml/.'
+  }
+];
+
+export const reviewArtifacts: ReviewArtifact[] = [
+  {
+    title: 'Advisory brief',
+    href: 'https://github.com/ChaiWithJai/bonsai-pack-builder/blob/main/docs/advisory-brief.md',
+    description: 'The reviewer-facing point, decision request, and Prism ecosystem fit.'
+  },
+  {
+    title: 'Synthetic pack',
+    href: 'https://github.com/ChaiWithJai/bonsai-pack-builder/tree/main/examples/care-navigation-intake/packs/care-navigation-intake',
+    description: 'A concrete care-navigation pack with recognizers, schema, policy, sink, evals, claims, and proof.'
+  },
+  {
+    title: 'Sample benchmark report',
+    href: 'https://github.com/ChaiWithJai/bonsai-pack-builder/blob/main/benchmark/prismml/care-navigation-intake.sample-report.md',
+    description: 'The first report shape for a future PrismML Bonsai-demo contribution.'
+  },
+  {
+    title: 'Completion audit',
+    href: 'https://github.com/ChaiWithJai/bonsai-pack-builder/blob/main/docs/completion-audit.md',
+    description: 'Requirement-by-requirement evidence for the seed objective.'
   }
 ];

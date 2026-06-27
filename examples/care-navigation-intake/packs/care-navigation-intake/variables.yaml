@@ -1,0 +1,17 @@
+workflow_name:
+  type: string
+  default: Care navigation intake
+sink_channel:
+  type: string
+  default: simulated-care-navigation
+runtime:
+  type: enum
+  values:
+    - mac-edge
+    - browser-gpu-benchmark
+    - future-mlx-ios
+  default: mac-edge
+approval_required:
+  type: boolean
+  default: true
+

@@ -145,6 +145,26 @@ ul {
   gap: 16px;
 }
 
+.artifacts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.artifacts a {
+  display: grid;
+  gap: 10px;
+  min-height: 120px;
+  border-radius: 14px;
+  background: #efe2c4;
+  padding: 16px;
+  text-decoration: none;
+}
+
+.artifacts span {
+  color: #5c5143;
+}
+
 .services article {
   min-height: 220px;
   border-radius: 14px;
@@ -176,6 +196,7 @@ ul {
 
 @media (max-width: 860px) {
   .grid,
+  .artifacts,
   .services {
     grid-template-columns: 1fr;
   }
