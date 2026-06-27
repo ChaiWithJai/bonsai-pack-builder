@@ -1,0 +1,26 @@
+{
+  "name": "bonsai-pack-builder",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "description": "A Deep Agents and SvelteKit harness for authoring verifier-gated Bonsai workflow packs.",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "docs:check": "bash scripts/check-docs.sh"
+  },
+  "dependencies": {
+    "@sveltejs/adapter-auto": "^6.0.0",
+    "@sveltejs/kit": "^2.22.0",
+    "@sveltejs/vite-plugin-svelte": "^5.1.0",
+    "svelte": "^5.34.0",
+    "vite": "^6.3.5"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-static": "^3.0.10",
+    "svelte-check": "^4.2.1",
+    "typescript": "^5.8.3"
+  }
+}

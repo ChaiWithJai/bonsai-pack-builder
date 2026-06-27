@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;font-family:'Kalam',cursive;color:#2b2b2b;background:#e9e7e1;}
+  ::selection{background:#fde68a;}
+</style>
+</helmet>
+
+<!-- ===== MASTER TITLE ===== -->
+<div style="position:absolute;left:80px;top:24px;width:760px">
+  <div style="font-size:34px;font-weight:700;letter-spacing:.5px">bonsai-pack-builder — UX wireframes</div>
+  <div style="font-size:17px;color:#6b6b6b;margin-top:2px">Low-fi exploration for RFC review · 3 approaches per screen · ✦ = human-in-the-loop gate</div>
+  <div style="display:flex;gap:10px;margin-top:12px;font-size:13px;color:#444">
+    <div style="border:2px solid #2b2b2b;border-radius:255px 15px 225px 15px/15px 225px 15px 255px;padding:3px 12px;background:#fff">Workflow interview</div>
+    <div style="border:2px solid #2b2b2b;border-radius:15px 225px 15px 255px/255px 15px 225px 15px;padding:3px 12px;background:#fff">HITL approvals</div>
+    <div style="border:2px solid #2b2b2b;border-radius:255px 15px 225px 15px/15px 225px 15px 255px;padding:3px 12px;background:#fff">Pack registry</div>
+    <div style="border:2px solid #2b2b2b;border-radius:15px 225px 15px 255px/255px 15px 225px 15px;padding:3px 12px;background:#fff">Claim guardrails</div>
+  </div>
+</div>
+
+<!-- ===================================================================== -->
+<!-- SECTION 1 · WORKFLOW INTERVIEW -> DRAFT PACK -->
+<!-- ===================================================================== -->
+<div style="position:absolute;left:80px;top:170px;width:900px">
+  <div style="font-size:24px;font-weight:700">1 · Workflow interview → draft pack</div>
+  <div style="font-size:15px;color:#6b6b6b">User describes a messy workflow; agent asks bounded questions and assembles a declarative pack.</div>
+</div>
+
+<!-- 1A: conversational + live draft -->
+<div style="position:absolute;left:80px;top:240px;width:540px">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;font-size:15px;color:#7a756c">1A · Conversational, draft assembles alongside</div>
+  <div style="background:#fff;border:2.5px solid #2b2b2b;border-radius:10px;box-shadow:6px 6px 0 rgba(43,43,43,.10);overflow:hidden">
+    <div style="display:flex;align-items:center;gap:6px;padding:8px 12px;border-bottom:2px solid #2b2b2b;background:#f3f1ec">
+      <div style="width:11px;height:11px;border-radius:50%;border:2px solid #2b2b2b"></div>
+      <div style="width:11px;height:11px;border-radius:50%;border:2px solid #2b2b2b"></div>
+      <div style="width:11px;height:11px;border-radius:50%;border:2px solid #2b2b2b"></div>
+      <div style="margin-left:8px;font-size:13px;color:#6b6b6b">bonsai-pack-builder · new pack</div>
+    </div>
+    <div style="display:flex;height:380px">
+      <div style="flex:1.2;border-right:2px dashed #c9c5bd;padding:12px;display:flex;flex-direction:column;gap:10px;overflow:hidden">
+        <div style="align-self:flex-start;max-width:88%;background:#f3f1ec;border:2px solid #2b2b2b;border-radius:14px 14px 14px 3px;padding:8px 10px;font-size:13px">What workflow are you trying to make safe?</div>
+        <div style="align-self:flex-end;max-width:88%;background:#fff;border:2px solid #8a8780;border-radius:14px 14px 3px 14px;padding:8px 10px;font-size:13px;color:#555">Referral notes in Sheets → summary into Slack</div>
+        <div style="align-self:flex-start;max-width:88%;background:#f3f1ec;border:2px solid #2b2b2b;border-radius:14px 14px 14px 3px;padding:8px 10px;font-size:13px">Which fields must never reach Slack?</div>
+        <div style="align-self:flex-end;max-width:88%;background:#fff;border:2px solid #8a8780;border-radius:14px 14px 3px 14px;padding:8px 10px;font-size:13px;color:#555">Names, DOB, phone, member ID, address…</div>
+        <div style="align-self:flex-start;display:flex;gap:5px;padding:6px 2px"><span style="width:7px;height:7px;border-radius:50%;background:#2b2b2b"></span><span style="width:7px;height:7px;border-radius:50%;background:#9a958c"></span><span style="width:7px;height:7px;border-radius:50%;background:#cfcabf"></span></div>
+        <div style="margin-top:auto;border:2px solid #2b2b2b;border-radius:255px 15px 225px 15px/15px 225px 15px 255px;padding:7px 10px;font-size:13px;color:#9a958c">type your answer…</div>
+      </div>
+      <div style="flex:1;background:#faf9f6;padding:12px">
+        <div style="font-size:12px;color:#7a756c;margin-bottom:8px">DRAFT · packs/care-navigation-intake</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11.5px;line-height:1.9;color:#444">
+          <div>📄 metadata.yaml</div>
+          <div>📄 variables.yaml</div>
+          <div style="color:#b45309">▸ recognizers/contact.yaml ✎</div>
+          <div style="opacity:.45">▸ recognizers/member-id.yaml</div>
+          <div style="opacity:.45">▸ schema/record.schema.json</div>
+          <div style="opacity:.45">▸ policy/egress.yaml</div>
+          <div style="opacity:.3">▸ eval/golden.jsonl</div>
+        </div>
+        <div style="margin-top:14px;height:6px;width:60%;background:#dcd9d3;border-radius:4px"></div>
+        <div style="margin-top:7px;height:6px;width:80%;background:#e6e3dd;border-radius:4px"></div>
+        <div style="margin-top:7px;height:6px;width:45%;background:#e6e3dd;border-radius:4px"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 1B: IDE split -->
+<div style="position:absolute;left:680px;top:240px;width:540px">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;font-size:15px;color:#7a756c">1B · IDE split — agent edits files you watch</div>
+  <div style="background:#fff;border:2.5px solid #2b2b2b;border-radius:10px;box-shadow:6px 6px 0 rgba(43,43,43,.10);overflow:hidden">
+    <div style="display:flex;align-items:center;gap:6px;padding:8px 12px;border-bottom:2px solid #2b2b2b;background:#f3f1ec">
+      <div style="width:11px;height:11px;border-radius:50%;border:2px solid #2b2b2b"></div>
+      <div style="width:11px;height:11px;border-radius:50%;border:2px solid #2b2b2b"></div>
+      <div style="width:11px;height:11px;border-radius:50%;border:2px solid #2b2b2b"></div>
+      <div style="margin-left:8px;font-size:13px;color:#6b6b6b">care-navigation-intake</div>
+    </div>
+    <div style="display:flex;height:380px;font-size:12px">
+      <div style="width:130px;border-right:2px solid #2b2b2b;background:#faf9f6;padding:10px;font-family:'JetBrains Mono',monospace;font-size:10.5px;line-height:2;color:#555">
+        <div style="color:#2b2b2b">▾ packs/</div>
+        <div style="padding-left:8px;color:#2b2b2b">▾ care-nav…/</div>
+        <div style="padding-left:16px">metadata</div>
+        <div style="padding-left:16px;background:#fde68a;border-radius:3px">contact.yaml</div>
+        <div style="padding-left:16px">member-id</div>
+        <div style="padding-left:16px">egress</div>
+        <div style="padding-left:16px;opacity:.4">golden.jsonl</div>
+      </div>
+      <div style="flex:1.3;border-right:2px dashed #c9c5bd;padding:10px;font-family:'JetBrains Mono',monospace;font-size:10.5px;line-height:1.8;color:#444">
+        <div style="color:#7a756c">recognizers/contact.yaml</div>
+        <div style="margin-top:6px;background:#dcfce7">+ phone: regex_e164</div>
+        <div style="background:#dcfce7">+ email: regex_email</div>
+        <div style="background:#dcfce7">+ address: bonsai.propose</div>
+        <div>type: contact</div>
+        <div>action: redact</div>
+        <div style="margin-top:8px;color:#9a958c">▍ agent writing…</div>
+      </div>
+      <div style="width:128px;padding:10px;background:#faf9f6;display:flex;flex-direction:column;gap:7px">
+        <div style="font-size:10px;color:#7a756c">AGENT</div>
+        <div style="border:2px solid #2b2b2b;border-radius:10px 10px 10px 3px;padding:6px;font-size:10.5px;line-height:1.4">Added address via Bonsai recognizer.</div>
+        <div style="border:2px solid #2b2b2b;border-radius:10px 10px 10px 3px;padding:6px;font-size:10.5px;line-height:1.4">Run gates next?</div>
+        <div style="margin-top:auto;border:2px solid #2b2b2b;border-radius:255px 15px 225px 15px/15px 225px 15px 255px;padding:5px;font-size:10px;color:#9a958c;text-align:center">ask…</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 1C: guided stepper -->
+<div style="position:absolute;left:1280px;top:240px;width:540px">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;font-size:15px;color:#7a756c">1C · Guided wizard through recipe stages</div>
+  <div style="background:#fff;border:2.5px solid #2b2b2b;border-radius:10px;box-shadow:6px 6px 0 rgba(43,43,43,.10);overflow:hidden">
+    <div style="display:flex;align-items:center;gap:6px;padding:8px 12px;border-bottom:2px solid #2b2b2b;background:#f3f1ec">
+      <div style="width:11px;height:11px;border-radius:50%;border:2px solid #2b2b2b"></div>
+      <div style="width:11px;height:11px;border-radius:50%;border:2px solid #2b2b2b"></div>
+      <div style="width:11px;height:11px;border-radius:50%;border:2px solid #2b2b2b"></div>
+      <div style="margin-left:8px;font-size:13px;color:#6b6b6b">new pack · step 2 of 5</div>
+    </div>
+    <div style="padding:16px;height:380px;box-sizing:border-box">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;font-size:11px">
+        <div style="text-align:center;color:#9a958c">①<br>Source</div>
+        <div style="flex:1;height:2px;background:#2b2b2b;margin:0 4px"></div>
+        <div style="text-align:center;font-weight:700">②<br>Recognize</div>
+        <div style="flex:1;height:2px;background:#cfcabf;margin:0 4px"></div>
+        <div style="text-align:center;color:#cfcabf">③<br>Verify</div>
+        <div style="flex:1;height:2px;background:#cfcabf;margin:0 4px"></div>
+        <div style="text-align:center;color:#cfcabf">④<br>Structure</div>
+        <div style="flex:1;height:2px;background:#cfcabf;margin:0 4px"></div>
+        <div style="text-align:center;color:#cfcabf">⑤<br>Publish</div>
+      </div>
+      <div style="font-size:18px;font-weight:700;margin-bottom:4px">What should be recognized & removed?</div>
+      <div style="font-size:13px;color:#7a756c;margin-bottom:14px">Toggle built-in recognizers; Bonsai proposes the fuzzy ones.</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <div style="border:2px solid #2b2b2b;border-radius:255px 15px 225px 15px/15px 225px 15px 255px;padding:5px 12px;font-size:13px;background:#dcfce7">✓ names</div>
+        <div style="border:2px solid #2b2b2b;border-radius:15px 225px 15px 255px/255px 15px 225px 15px;padding:5px 12px;font-size:13px;background:#dcfce7">✓ phone</div>
+        <div style="border:2px solid #2b2b2b;border-radius:255px 15px 225px 15px/15px 225px 15px 255px;padding:5px 12px;font-size:13px;background:#dcfce7">✓ DOB</div>
+        <div style="border:2px solid #2b2b2b;border-radius:15px 225px 15px 255px/255px 15px 225px 15px;padding:5px 12px;font-size:13px;background:#dcfce7">✓ member ID</div>
+        <div style="border:2px dashed #b45309;border-radius:255px 15px 225px 15px/15px 225px 15px 255px;padding:5px 12px;font-size:13px;color:#b45309">＋ address (Bonsai)</div>
+        <div style="border:2px dashed #8a8780;border-radius:15px 225px 15px 255px/255px 15px 225px 15px;padding:5px 12px;font-size:13px;color:#8a8780">＋ clinic name</div>
+        <div style="border:2px dashed #8a8780;border-radius:255px 15px 225px 15px/15px 225px 15px 255px;padding:5px 12px;font-size:13px;color:#8a8780">＋ family detail</div>
+      </div>
+      <div style="display:flex;justify-content:space-between;margin-top:34px">
+        <div style="border:2px solid #8a8780;border-radius:15px 225px 15px 255px/255px 15px 225px 15px;padding:7px 18px;font-size:14px;color:#8a8780">← Back</div>
+        <div style="border:2.5px solid #2b2b2b;border-radius:255px 15px 225px 15px/15px 225px 15px 255px;padding:7px 22px;font-size:14px;font-weight:700;background:#fde68a">Verify →</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===================================================================== -->
+<!-- SECTION 2 · HITL APPROVAL MOMENTS (emphasis) -->
+<!-- ===================================================================== -->
+<div style="position:absolute;left:80px;top:740px;width:1000px">
+  <div style="font-size:24px;font-weight:700">2 · Human-in-the-loop approval ✦ <span style="font-size:14px;font-weight:400;color:#b45309">— the moments that matter most</span></div>
+  <div style="font-size:15px;color:#6b6b6b">The agent may draft and propose, but writing files, running gates, and touching sinks all pause for a human.</div>
+</div>
+
+<!-- 2A: inline approval card -->
+<div style="position:absolute;left:80px;top:810px;width:540px">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;font-size:15px;color:#7a756c">2A · Inline approval card in the chat stream</div>
+  <div style="background:#fff;border:2.5px solid #2b2b2b;border-radius:10px;box-shadow:6px 6px 0 rgba(43,43,43,.10);overflow:hidden">
+    <div style="display:flex;align-items:center;gap:6px;padding:8px 12px;border-bottom:2px solid #2b2b2b;background:#f3f1ec">
+      <div style="width:11px;height:11px;border-radius:50%;border:2px solid #2b2b2b"></div>
+      <div style="width:11px;height:11px;border-radius:50%;border:2px solid #2b2b2b"></div>
+      <div style="width:11px;height:11px;border-radius:50%;border:2px solid #2b2b2b"></div>
+      <div style="margin-left:8px;font-size:13px;color:#6b6b6b">approval required</div>
+    </div>
+    <div style="padding:14px;display:flex;flex-direction:column;gap:10px;height:330px;box-sizing:border-box">
+      <div style="align-self:flex-start;max-width:85%;background:#f3f1ec;border:2px solid #2b2b2b;border-radius:14px 14px 14px 3px;padding:8px 10px;font-size:13px">Draft is ready. I'd like to write it into the repo.</div>
+      <div style="border:2.5px solid #b45309;border-radius:12px;background:#fef9e7;padding:14px;box-shadow:4px 4px 0 rgba(180,83,9,.18)">
+        <div style="display:flex;align-items:center;gap:8px;font-size:15px;font-weight:700;color:#b45309">✦ Agent wants to WRITE 6 files</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#555;margin:8px 0 12px;line-height:1.7">into packs/care-navigation-intake/<br>metadata · variables · 2 recognizers ·<br>schema · policy/egress.yaml</div>
+        <div style="display:flex;gap:8px">
+          <div style="border:2px solid #2b2b2b;border-radius:255px 15px 225px 15px/15px 225px 15px 255px;padding:6px 14px;font-size:13px;font-weight:700;background:#bbf7d0">✓ Approve</div>
+          <div style="border:2px solid #2b2b2b;border-radius:15px 225px 15px 255px/255px 15px 225px 15px;padding:6px 14px;font-size:13px;background:#fff">View diff</div>
+          <div style="border:2px solid #2b2b2b;border-radius:255px 15px 225px 15px/15px 225px 15px 255px;padding:6px 14px;font-size:13px;background:#fecaca">✕ Reject</div>
+        </div>
+      </div>
+      <div style="margin-top:auto;border:2px solid #2b2b2b;border-radius:255px 15px 225px 15px/15px 225px 15px 255px;padding:7px 10px;font-size:13px;color:#9a958c">reply…</div>
+    </div>
+  </div>
+</div>
+<div style="position:absolute;left:430px;top:1180px;width:200px;background:#fde68a;padding:12px 14px;font-size:13px;line-height:1.4;box-shadow:3px 3px 0 rgba(0,0,0,.12);transform:rotate(-2deg);z-index:5">Nothing reaches the repo, gates, or Slack without crossing one of these gates. ✦</div>
+
+<!-- 2B: diff review modal -->
+<div style="position:absolute;left:680px;top:810px;width:540px">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;font-size:15px;color:#7a756c">2B · Full diff review before write</div>
+  <div style="background:#efece6;border:2.5px solid #2b2b2b;border-radius:10px;box-shadow:6px 6px 0 rgba(43,43,43,.10);overflow:hidden;height:362px;position:relative">
+    <div style="position:absolute;inset:0;opacity:.35;background:repeating-linear-gradient(45deg,#d8d4cc 0 8px,#efece6 8px 16px)"></div>
+    <div style="position:absolute;left:26px;right:26px;top:24px;background:#fff;border:2.5px solid #2b2b2b;border-radius:10px;box-shadow:5px 5px 0 rgba(43,43,43,.18)">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:2px solid #2b2b2b;background:#fef9e7">
+        <div style="font-size:14px;font-weight:700;color:#b45309">✦ Review changes — 6 files, +84 / −0</div>
+        <div style="font-size:13px;color:#8a8780">esc</div>
+      </div>
+      <div style="display:flex;height:208px">
+        <div style="width:135px;border-right:2px solid #2b2b2b;background:#faf9f6;padding:8px;font-family:'JetBrains Mono',monospace;font-size:10px;line-height:1.9">
+          <div style="display:flex;justify-content:space-between"><span>metadata</span><span style="color:#16a34a">+9</span></div>
+          <div style="display:flex;justify-content:space-between;background:#fde68a;border-radius:3px;padding:0 2px"><span>contact</span><span style="color:#16a34a">+18</span></div>
+          <div style="display:flex;justify-content:space-between"><span>member-id</span><span style="color:#16a34a">+12</span></div>
+          <div style="display:flex;justify-content:space-between"><span>schema</span><span style="color:#16a34a">+21</span></div>
+          <div style="display:flex;justify-content:space-between"><span>egress</span><span style="color:#16a34a">+15</span></div>
+          <div style="display:flex;justify-content:space-between"><span>variables</span><span style="color:#16a34a">+9</span></div>
+        </div>
+        <div style="flex:1;padding:8px;font-family:'JetBrains Mono',monospace;font-size:10px;line-height:1.75;color:#444">
+          <div style="color:#7a756c">recognizers/contact.yaml</div>
+          <div style="background:#dcfce7">+ phone:   regex_e164</div>
+          <div style="background:#dcfce7">+ email:   regex_email</div>
+          <div style="background:#dcfce7">+ address: bonsai.propose</div>
+          <div style="background:#dcfce7">+ action:  redact</div>
+          <div style="background:#dcfce7">+ on_residual: deny</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;padding:10px 14px;border-top:2px solid #2b2b2b;justify-content:flex-end">
+        <div style="border:2px solid #2b2b2b;border-radius:15px 225px 15px 255px/255px 15px 225px 15px;padding:6px 14px;font-size:13px;background:#fecaca">Reject</div>
+        <div style="border:2px solid #2b2b2b;border-radius:255px 15px 225px 15px/15px 225px 15px 255px;padding:6px 14px;font-size:13px;background:#fff">Approve selected</div>
+        <div style="border:2.5px solid #2b2b2b;border-radius:255px 15px 225px 15px/15px 225px 15px 255px;padding:6px 16px;font-size:13px;font-weight:700;background:#bbf7d0">Approve all</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 2C: action approval ladder -->
+<div style="position:absolute;left:1280px;top:810px;width:540px">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;font-size:15px;color:#7a756c">2C · Risk-tiered action ladder</div>
+  <div style="background:#fff;border:2.5px solid #2b2b2b;border-radius:10px;box-shadow:6px 6px 0 rgba(43,43,43,.10);overflow:hidden">
+    <div style="display:flex;align-items:center;gap:6px;padding:8px 12px;border-bottom:2px solid #2b2b2b;background:#f3f1ec">
+      <div style="width:11px;height:11px;border-radius:50%;border:2px solid #2b2b2b"></div>
+      <div style="width:11px;height:11px;border-radius:50%;border:2px solid #2b2b2b"></div>
+      <div style="width:11px;height:11px;border-radius:50%;border:2px solid #2b2b2b"></div>
+      <div style="margin-left:8px;font-size:13px;color:#6b6b6b">pending agent actions</div>
+    </div>
+    <div style="padding:14px;display:flex;flex-direction:column;gap:11px;height:330px;box-sizing:border-box">
+      <div style="display:flex;align-items:center;gap:10px;border:2px solid #2b2b2b;border-radius:10px;padding:10px;background:#dcfce7">
+        <div style="font-size:11px;font-weight:700;border:2px solid #16a34a;border-radius:6px;padding:2px 7px;color:#16a34a">LOW</div>
+        <div style="flex:1;font-size:13px">Draft files to <b>scratch</b> state</div>
+        <div style="font-size:12px;color:#16a34a;font-weight:700">auto ✓</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;border:2.5px solid #b45309;border-radius:10px;padding:10px;background:#fef9e7;box-shadow:3px 3px 0 rgba(180,83,9,.15)">
+        <div style="font-size:11px;font-weight:700;border:2px solid #b45309;border-radius:6px;padding:2px 7px;color:#b45309">MED</div>
+        <div style="flex:1;font-size:13px">✦ Write pack into repo</div>
+        <div style="display:flex;gap:5px"><span style="border:2px solid #2b2b2b;border-radius:8px;padding:3px 8px;font-size:11px;background:#bbf7d0">✓</span><span style="border:2px solid #2b2b2b;border-radius:8px;padding:3px 8px;font-size:11px;background:#fecaca">✕</span></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;border:2.5px solid #b45309;border-radius:10px;padding:10px;background:#fef9e7;box-shadow:3px 3px 0 rgba(180,83,9,.15)">
+        <div style="font-size:11px;font-weight:700;border:2px solid #b45309;border-radius:6px;padding:2px 7px;color:#b45309">MED</div>
+        <div style="flex:1;font-size:13px">✦ Run gates-fast (sandbox)</div>
+        <div style="display:flex;gap:5px"><span style="border:2px solid #2b2b2b;border-radius:8px;padding:3px 8px;font-size:11px;background:#bbf7d0">✓</span><span style="border:2px solid #2b2b2b;border-radius:8px;padding:3px 8px;font-size:11px;background:#fecaca">✕</span></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;border:2.5px solid #dc2626;border-radius:10px;padding:10px;background:#fef2f2;box-shadow:3px 3px 0 rgba(220,38,38,.18)">
+        <div style="font-size:11px;font-weight:700;border:2px solid #dc2626;border-radius:6px;padding:2px 7px;color:#dc2626">HIGH</div>
+        <div style="flex:1;font-size:13px">✦ Send to Slack sink <span style="color:#dc2626">— blocked by default</span></div>
+        <div style="display:flex;gap:5px"><span style="border:2px solid #cfcabf;border-radius:8px;padding:3px 8px;font-size:11px;color:#cfcabf">✓</span><span style="border:2px solid #cfcabf;border-radius:8px;padding:3px 8px;font-size:11px;color:#cfcabf">✕</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================================================================== -->
+<!-- SECTION 3 · PACK REGISTRY · BROWSE + CONTRIBUTE -->
+<!-- ===================================================================== -->
+<div style="position:absolute;left:80px;top:1320px;width:1000px">
+  <div style="font-size:24px;font-weight:700">3 · Pack registry — browse & contribute</div>
+  <div style="font-size:15px;color:#6b6b6b">Reusable regulated-workflow patterns. Adopters configure; builders fork & open a PR.</div>
+</div>
+
+<!-- 3A: card grid -->
+<div style="position:absolute;left:80px;top:1390px;width:540px">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;font-size:15px;color:#7a756c">3A · Card grid — discovery first</div>
+  <div style="background:#fff;border:2.5px solid #2b2b2b;border-radius:10px;box-shadow:6px 6px 0 rgba(43,43,43,.10);overflow:hidden">
+    <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:2px solid #2b2b2b;background:#f3f1ec">
+      <div style="font-size:15px;font-weight:700">Registry</div>
+      <div style="flex:1;border:2px solid #2b2b2b;border-radius:255px 15px 225px 15px/15px 225px 15px 255px;padding:4px 12px;font-size:12px;color:#9a958c">🔍 search packs…</div>
+      <div style="border:2.5px solid #2b2b2b;border-radius:255px 15px 225px 15px/15px 225px 15px 255px;padding:4px 12px;font-size:12px;font-weight:700;background:#fde68a">＋ Contribute</div>
+    </div>
+    <div style="padding:14px;display:grid;grid-template-columns:1fr 1fr;gap:12px;height:330px;box-sizing:border-box;overflow:hidden">
+      <div style="border:2px solid #2b2b2b;border-radius:10px;padding:11px;display:flex;flex-direction:column;gap:7px">
+        <div style="font-size:14px;font-weight:700">care-navigation-intake</div>
+        <div style="height:6px;width:90%;background:#e6e3dd;border-radius:4px"></div>
+        <div style="height:6px;width:60%;background:#e6e3dd;border-radius:4px"></div>
+        <div style="margin-top:auto;display:flex;gap:6px;font-size:10px"><span style="background:#dcfce7;border:1.5px solid #16a34a;border-radius:6px;padding:1px 6px">gates ✓</span><span style="background:#f3f1ec;border:1.5px solid #8a8780;border-radius:6px;padding:1px 6px">42 evals</span></div>
+      </div>
+      <div style="border:2px solid #2b2b2b;border-radius:10px;padding:11px;display:flex;flex-direction:column;gap:7px">
+        <div style="font-size:14px;font-weight:700">coach-session</div>
+        <div style="height:6px;width:80%;background:#e6e3dd;border-radius:4px"></div>
+        <div style="height:6px;width:55%;background:#e6e3dd;border-radius:4px"></div>
+        <div style="margin-top:auto;display:flex;gap:6px;font-size:10px"><span style="background:#dcfce7;border:1.5px solid #16a34a;border-radius:6px;padding:1px 6px">gates ✓</span><span style="background:#fde68a;border:1.5px solid #b45309;border-radius:6px;padding:1px 6px">★ official</span></div>
+      </div>
+      <div style="border:2px solid #2b2b2b;border-radius:10px;padding:11px;display:flex;flex-direction:column;gap:7px">
+        <div style="font-size:14px;font-weight:700">intake-form-scrub</div>
+        <div style="height:6px;width:75%;background:#e6e3dd;border-radius:4px"></div>
+        <div style="height:6px;width:50%;background:#e6e3dd;border-radius:4px"></div>
+        <div style="margin-top:auto;display:flex;gap:6px;font-size:10px"><span style="background:#fef2f2;border:1.5px solid #dc2626;border-radius:6px;padding:1px 6px">gates ✕</span><span style="background:#f3f1ec;border:1.5px solid #8a8780;border-radius:6px;padding:1px 6px">draft</span></div>
+      </div>
+      <div style="border:2px dashed #8a8780;border-radius:10px;padding:11px;display:flex;align-items:center;justify-content:center;color:#8a8780;font-size:13px;text-align:center">＋ start a<br>new pack</div>
+    </div>
+  </div>
+</div>
+
+<!-- 3B: list / table with evidence columns -->
+<div style="position:absolute;left:680px;top:1390px;width:540px">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;font-size:15px;color:#7a756c">3B · Evidence table — trust at a glance</div>
+  <div style="background:#fff;border:2.5px solid #2b2b2b;border-radius:10px;box-shadow:6px 6px 0 rgba(43,43,43,.10);overflow:hidden">
+    <div style="display:flex;align-items:center;gap:6px;padding:8px 12px;border-bottom:2px solid #2b2b2b;background:#f3f1ec">
+      <div style="width:11px;height:11px;border-radius:50%;border:2px solid #2b2b2b"></div>
+      <div style="width:11px;height:11px;border-radius:50%;border:2px solid #2b2b2b"></div>
+      <div style="width:11px;height:11px;border-radius:50%;border:2px solid #2b2b2b"></div>
+      <div style="margin-left:8px;font-size:13px;color:#6b6b6b">registry · sorted by gate health</div>
+    </div>
+    <div style="padding:0;height:362px;box-sizing:border-box">
+      <div style="display:grid;grid-template-columns:1.6fr .8fr .8fr 1fr;gap:0;font-size:11px;color:#7a756c;padding:10px 14px;border-bottom:2px solid #2b2b2b;font-weight:700">
+        <div>PACK</div><div>EVALS</div><div>GATES</div><div>CLAIMS</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1.6fr .8fr .8fr 1fr;gap:0;font-size:12.5px;padding:11px 14px;border-bottom:1.5px dashed #cfcabf;align-items:center">
+        <div style="font-weight:700">coach-session ★</div><div>61</div><div style="color:#16a34a;font-weight:700">pass</div><div style="font-size:10px;color:#16a34a">reviewed ✓</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1.6fr .8fr .8fr 1fr;gap:0;font-size:12.5px;padding:11px 14px;border-bottom:1.5px dashed #cfcabf;align-items:center;background:#faf9f6">
+        <div style="font-weight:700">care-navigation-intake</div><div>42</div><div style="color:#16a34a;font-weight:700">pass</div><div style="font-size:10px;color:#16a34a">reviewed ✓</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1.6fr .8fr .8fr 1fr;gap:0;font-size:12.5px;padding:11px 14px;border-bottom:1.5px dashed #cfcabf;align-items:center">
+        <div style="font-weight:700">referral-summary</div><div>28</div><div style="color:#b45309;font-weight:700">1 warn</div><div style="font-size:10px;color:#b45309">needs review</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1.6fr .8fr .8fr 1fr;gap:0;font-size:12.5px;padding:11px 14px;border-bottom:1.5px dashed #cfcabf;align-items:center;background:#faf9f6">
+        <div style="font-weight:700">intake-form-scrub</div><div>9</div><div style="color:#dc2626;font-weight:700">fail</div><div style="font-size:10px;color:#dc2626">unverified ✕</div>
+      </div>
+      <div style="padding:14px;display:flex;gap:8px">
+        <div style="border:2.5px solid #2b2b2b;border-radius:255px 15px 225px 15px/15px 225px 15px 255px;padding:6px 16px;font-size:13px;font-weight:700;background:#fde68a">＋ Contribute a pack</div>
+        <div style="border:2px solid #8a8780;border-radius:15px 225px 15px 255px/255px 15px 225px 15px;padding:6px 14px;font-size:13px;color:#555">Fork selected</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 3C: pack detail + contribute flow -->
+<div style="position:absolute;left:1280px;top:1390px;width:540px">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;font-size:15px;color:#7a756c">3C · Pack detail → fork → PR</div>
+  <div style="background:#fff;border:2.5px solid #2b2b2b;border-radius:10px;box-shadow:6px 6px 0 rgba(43,43,43,.10);overflow:hidden">
+    <div style="display:flex;align-items:center;gap:6px;padding:8px 12px;border-bottom:2px solid #2b2b2b;background:#f3f1ec">
+      <div style="width:11px;height:11px;border-radius:50%;border:2px solid #2b2b2b"></div>
+      <div style="width:11px;height:11px;border-radius:50%;border:2px solid #2b2b2b"></div>
+      <div style="width:11px;height:11px;border-radius:50%;border:2px solid #2b2b2b"></div>
+      <div style="margin-left:8px;font-size:13px;color:#6b6b6b">care-navigation-intake</div>
+    </div>
+    <div style="padding:14px;height:362px;box-sizing:border-box;display:flex;flex-direction:column;gap:10px">
+      <div style="display:flex;align-items:center;justify-content:space-between">
+        <div style="font-size:18px;font-weight:700">care-navigation-intake</div>
+        <div style="display:flex;gap:6px;font-size:10px"><span style="background:#dcfce7;border:1.5px solid #16a34a;border-radius:6px;padding:2px 7px">gates ✓</span><span style="background:#f3f1ec;border:1.5px solid #8a8780;border-radius:6px;padding:2px 7px">synthetic only</span></div>
+      </div>
+      <div style="height:6px;width:95%;background:#e6e3dd;border-radius:4px"></div>
+      <div style="height:6px;width:70%;background:#e6e3dd;border-radius:4px"></div>
+      <div style="display:flex;gap:10px;margin-top:2px">
+        <div style="flex:1;border:2px solid #2b2b2b;border-radius:10px;padding:10px;font-family:'JetBrains Mono',monospace;font-size:10px;line-height:1.8;color:#555">
+          README<br>metadata.yaml<br>recognizers/<br>schema/<br>policy/egress.yaml<br>eval/golden.jsonl<br>publish/claims.md
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column;gap:8px">
+          <div style="border:2px solid #2b2b2b;border-radius:10px;padding:9px;font-size:11px;background:#fef9e7"><b>Allowed claim</b><br>"scrubbed before egress"</div>
+          <div style="border:2px solid #dc2626;border-radius:10px;padding:9px;font-size:11px;background:#fef2f2;color:#dc2626"><b>Blocked</b><br>"HIPAA-compliant"</div>
+        </div>
+      </div>
+      <div style="margin-top:auto;display:flex;gap:8px">
+        <div style="flex:1;border:2.5px solid #2b2b2b;border-radius:255px 15px 225px 15px/15px 225px 15px 255px;padding:8px;font-size:13px;font-weight:700;background:#fde68a;text-align:center">Fork & configure</div>
+        <div style="flex:1;border:2px solid #2b2b2b;border-radius:15px 225px 15px 255px/255px 15px 225px 15px;padding:8px;font-size:13px;text-align:center;background:#fff">Open PR ↗</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================================================================== -->
+<!-- SECTION 4 · CLAIM GUARDRAILS ("what you can't say") -->
+<!-- ===================================================================== -->
+<div style="position:absolute;left:80px;top:1900px;width:1000px">
+  <div style="font-size:24px;font-weight:700">4 · Claim guardrails — "what you can't say"</div>
+  <div style="font-size:15px;color:#6b6b6b">A claim-critic subagent checks generated copy against evidence. Say "scrubbed", never "HIPAA-compliant".</div>
+</div>
+
+<!-- 4A: allowed vs blocked -->
+<div style="position:absolute;left:80px;top:1970px;width:540px">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;font-size:15px;color:#7a756c">4A · Allowed ↔ Can't-say, side by side</div>
+  <div style="background:#fff;border:2.5px solid #2b2b2b;border-radius:10px;box-shadow:6px 6px 0 rgba(43,43,43,.10);overflow:hidden">
+    <div style="display:flex;align-items:center;gap:6px;padding:8px 12px;border-bottom:2px solid #2b2b2b;background:#f3f1ec">
+      <div style="width:11px;height:11px;border-radius:50%;border:2px solid #2b2b2b"></div>
+      <div style="width:11px;height:11px;border-radius:50%;border:2px solid #2b2b2b"></div>
+      <div style="width:11px;height:11px;border-radius:50%;border:2px solid #2b2b2b"></div>
+      <div style="margin-left:8px;font-size:13px;color:#6b6b6b">claim boundary · publish/claims.md</div>
+    </div>
+    <div style="display:flex;height:330px">
+      <div style="flex:1;border-right:2px dashed #c9c5bd;padding:14px;background:#f3fbf4">
+        <div style="font-size:14px;font-weight:700;color:#16a34a;margin-bottom:10px">✓ You may say</div>
+        <div style="display:flex;flex-direction:column;gap:9px;font-size:12.5px">
+          <div style="border:2px solid #16a34a;border-radius:10px;padding:8px;background:#fff">"PHI is scrubbed before it leaves the device"</div>
+          <div style="border:2px solid #16a34a;border-radius:10px;padding:8px;background:#fff">"Default-deny residual scan"</div>
+          <div style="border:2px solid #16a34a;border-radius:10px;padding:8px;background:#fff">"Synthetic-data evaluation"</div>
+        </div>
+      </div>
+      <div style="flex:1;padding:14px;background:#fdf3f3">
+        <div style="font-size:14px;font-weight:700;color:#dc2626;margin-bottom:10px">✕ You may not say</div>
+        <div style="display:flex;flex-direction:column;gap:9px;font-size:12.5px">
+          <div style="border:2px solid #dc2626;border-radius:10px;padding:8px;background:#fff;text-decoration:line-through;color:#b91c1c">"HIPAA-compliant"</div>
+          <div style="border:2px solid #dc2626;border-radius:10px;padding:8px;background:#fff;text-decoration:line-through;color:#b91c1c">"Fully de-identified"</div>
+          <div style="border:2px solid #dc2626;border-radius:10px;padding:8px;background:#fff;text-decoration:line-through;color:#b91c1c">"Guaranteed safe"</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 4B: inline lint on copy -->
+<div style="position:absolute;left:680px;top:1970px;width:540px">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;font-size:15px;color:#7a756c">4B · Inline lint as you write copy</div>
+  <div style="background:#fff;border:2.5px solid #2b2b2b;border-radius:10px;box-shadow:6px 6px 0 rgba(43,43,43,.10);overflow:hidden">
+    <div style="display:flex;align-items:center;gap:6px;padding:8px 12px;border-bottom:2px solid #2b2b2b;background:#f3f1ec">
+      <div style="width:11px;height:11px;border-radius:50%;border:2px solid #2b2b2b"></div>
+      <div style="width:11px;height:11px;border-radius:50%;border:2px solid #2b2b2b"></div>
+      <div style="width:11px;height:11px;border-radius:50%;border:2px solid #2b2b2b"></div>
+      <div style="margin-left:8px;font-size:13px;color:#6b6b6b">editing README.md</div>
+    </div>
+    <div style="padding:16px;height:330px;box-sizing:border-box;font-size:13.5px;line-height:2.1;color:#333">
+      This pack scrubs referral notes so they are
+      <span style="border-bottom:3px wavy #dc2626;padding-bottom:1px;background:#fdeaea">HIPAA-compliant</span>
+      before posting to Slack. It removes names, dates and IDs, leaving a
+      <span style="border-bottom:3px wavy #b45309;padding-bottom:1px;background:#fef9e7">fully de-identified</span>
+      summary your team can trust.
+      <div style="margin-top:18px;border:2px solid #dc2626;border-radius:10px;background:#fef2f2;padding:11px;font-size:12.5px;box-shadow:3px 3px 0 rgba(220,38,38,.15)">
+        <div style="font-weight:700;color:#dc2626">⚠ Claim not supported by evidence</div>
+        <div style="color:#555;margin-top:4px">"HIPAA-compliant" requires a BAA + audit you don't have. Suggest: <i>"scrubbed before egress"</i>.</div>
+        <div style="display:flex;gap:6px;margin-top:8px"><span style="border:2px solid #2b2b2b;border-radius:8px;padding:3px 10px;font-size:11px;background:#bbf7d0;font-weight:700">Apply fix</span><span style="border:2px solid #2b2b2b;border-radius:8px;padding:3px 10px;font-size:11px;background:#fff">Dismiss</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 4C: claim critic review panel -->
+<div style="position:absolute;left:1280px;top:1970px;width:540px">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;font-size:15px;color:#7a756c">4C · Claim-critic gate before publish ✦</div>
+  <div style="background:#fff;border:2.5px solid #2b2b2b;border-radius:10px;box-shadow:6px 6px 0 rgba(43,43,43,.10);overflow:hidden">
+    <div style="display:flex;align-items:center;gap:6px;padding:8px 12px;border-bottom:2px solid #2b2b2b;background:#fef9e7">
+      <div style="width:11px;height:11px;border-radius:50%;border:2px solid #b45309"></div>
+      <div style="width:11px;height:11px;border-radius:50%;border:2px solid #b45309"></div>
+      <div style="width:11px;height:11px;border-radius:50%;border:2px solid #b45309"></div>
+      <div style="margin-left:8px;font-size:13px;color:#b45309;font-weight:700">✦ claim-critic · publish blocked</div>
+    </div>
+    <div style="padding:14px;height:330px;box-sizing:border-box;display:flex;flex-direction:column;gap:9px">
+      <div style="font-size:13px;color:#7a756c">Scanned 4 copy artifacts · 2 flags must clear before publish.</div>
+      <div style="display:flex;align-items:flex-start;gap:9px;border:2px solid #dc2626;border-radius:10px;padding:9px;background:#fef2f2">
+        <div style="font-size:16px;color:#dc2626">✕</div>
+        <div style="font-size:12px"><b>README.md</b> · "HIPAA-compliant"<br><span style="color:#777">no evidence — must remove</span></div>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:9px;border:2px solid #b45309;border-radius:10px;padding:9px;background:#fef9e7">
+        <div style="font-size:16px;color:#b45309">!</div>
+        <div style="font-size:12px"><b>business-case.md</b> · "fully de-identified"<br><span style="color:#777">soften to "scrubbed"</span></div>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:9px;border:2px solid #16a34a;border-radius:10px;padding:9px;background:#f3fbf4">
+        <div style="font-size:16px;color:#16a34a">✓</div>
+        <div style="font-size:12px"><b>claims.md</b> · evidence-linked<br><span style="color:#777">2 proof commands attached</span></div>
+      </div>
+      <div style="margin-top:auto;display:flex;gap:8px">
+        <div style="flex:1;border:2.5px solid #2b2b2b;border-radius:255px 15px 225px 15px/15px 225px 15px 255px;padding:8px;font-size:13px;font-weight:700;background:#fde68a;text-align:center">Fix all & re-check</div>
+        <div style="border:2px solid #cfcabf;border-radius:15px 225px 15px 255px/255px 15px 225px 15px;padding:8px 14px;font-size:13px;color:#cfcabf;text-align:center">Publish</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================================================================== -->
+<!-- SECTION 5 · CLI / TERMINAL FLOW -->
+<!-- ===================================================================== -->
+<div style="position:absolute;left:80px;top:2470px;width:1000px">
+  <div style="font-size:24px;font-weight:700">5 · CLI / terminal flow</div>
+  <div style="font-size:15px;color:#6b6b6b">Same interview → draft → ✦ approve → gates loop, for users who live in the terminal.</div>
+</div>
+
+<!-- 5A: interview in terminal -->
+<div style="position:absolute;left:80px;top:2540px;width:560px">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;font-size:15px;color:#7a756c">5A · Interview</div>
+  <div style="background:#1f1d1a;border:2.5px solid #2b2b2b;border-radius:10px;box-shadow:6px 6px 0 rgba(43,43,43,.18);overflow:hidden;font-family:'JetBrains Mono',monospace">
+    <div style="display:flex;align-items:center;gap:6px;padding:7px 12px;background:#2b2825">
+      <div style="width:10px;height:10px;border-radius:50%;background:#e06c5a"></div>
+      <div style="width:10px;height:10px;border-radius:50%;background:#e0b24a"></div>
+      <div style="width:10px;height:10px;border-radius:50%;background:#5aa86a"></div>
+      <div style="margin-left:8px;font-size:12px;color:#9a958c">zsh — bonsai pack new</div>
+    </div>
+    <div style="padding:14px;font-size:12px;line-height:1.85;color:#d8d4cc;height:300px;box-sizing:border-box">
+      <div><span style="color:#5aa86a">$</span> bonsai pack new</div>
+      <div style="color:#7fb3c9">? Describe the workflow you want to make safe</div>
+      <div style="color:#e0c98a">&gt; sheets referral notes → slack summary</div>
+      <div style="color:#7fb3c9">? Fields that must never leave?</div>
+      <div style="color:#e0c98a">&gt; names, dob, phone, member id, address</div>
+      <div style="color:#9a958c">  ↳ drafting recognizers…</div>
+      <div style="color:#9a958c">  ↳ bonsai proposing: address, clinic</div>
+      <div style="color:#5aa86a">✓ draft ready (6 files, scratch)</div>
+      <div style="margin-top:4px"><span style="color:#5aa86a">$</span> <span style="background:#d8d4cc;color:#1f1d1a">&nbsp;</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- 5B: HITL prompt in terminal -->
+<div style="position:absolute;left:700px;top:2540px;width:560px">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;font-size:15px;color:#7a756c">5B · ✦ Approve write</div>
+  <div style="background:#1f1d1a;border:2.5px solid #b45309;border-radius:10px;box-shadow:6px 6px 0 rgba(180,83,9,.25);overflow:hidden;font-family:'JetBrains Mono',monospace">
+    <div style="display:flex;align-items:center;gap:6px;padding:7px 12px;background:#2b2825">
+      <div style="width:10px;height:10px;border-radius:50%;background:#e06c5a"></div>
+      <div style="width:10px;height:10px;border-radius:50%;background:#e0b24a"></div>
+      <div style="width:10px;height:10px;border-radius:50%;background:#5aa86a"></div>
+      <div style="margin-left:8px;font-size:12px;color:#9a958c">zsh — approval required ✦</div>
+    </div>
+    <div style="padding:14px;font-size:12px;line-height:1.85;color:#d8d4cc;height:300px;box-sizing:border-box">
+      <div style="color:#e0b24a">✦ Agent wants to WRITE 6 files into</div>
+      <div style="color:#e0b24a">  packs/care-navigation-intake/</div>
+      <div style="margin:6px 0;color:#9a958c">  diff: +84 / −0</div>
+      <div style="color:#5aa86a">+ recognizers/contact.yaml</div>
+      <div style="color:#5aa86a">+ policy/egress.yaml   (on_residual: deny)</div>
+      <div style="color:#9a958c">  … 4 more</div>
+      <div style="margin-top:8px;color:#7fb3c9">? Approve write &nbsp;[y/N/d=diff]</div>
+      <div style="color:#e0c98a">&gt; y<span style="background:#d8d4cc;color:#1f1d1a">&nbsp;</span></div>
+      <div style="color:#5aa86a;margin-top:4px">✓ written. run gates? (also gated)</div>
+    </div>
+  </div>
+</div>
+
+<!-- 5C: gates output -->
+<div style="position:absolute;left:1320px;top:2540px;width:560px">
+  <div data-drags-parent="1" style="position:absolute;top:-24px;font-size:15px;color:#7a756c">5C · Gates + eval evidence</div>
+  <div style="background:#1f1d1a;border:2.5px solid #2b2b2b;border-radius:10px;box-shadow:6px 6px 0 rgba(43,43,43,.18);overflow:hidden;font-family:'JetBrains Mono',monospace">
+    <div style="display:flex;align-items:center;gap:6px;padding:7px 12px;background:#2b2825">
+      <div style="width:10px;height:10px;border-radius:50%;background:#e06c5a"></div>
+      <div style="width:10px;height:10px;border-radius:50%;background:#e0b24a"></div>
+      <div style="width:10px;height:10px;border-radius:50%;background:#5aa86a"></div>
+      <div style="margin-left:8px;font-size:12px;color:#9a958c">zsh — ./run.sh gates-fast</div>
+    </div>
+    <div style="padding:14px;font-size:12px;line-height:1.85;color:#d8d4cc;height:300px;box-sizing:border-box">
+      <div><span style="color:#5aa86a">$</span> ./run.sh gates-fast</div>
+      <div style="color:#5aa86a">✓ schema valid</div>
+      <div style="color:#5aa86a">✓ default-deny residual scan</div>
+      <div style="color:#5aa86a">✓ 42/42 synthetic evals pass</div>
+      <div style="color:#e0b24a">! 1 recognizer low recall (address .91)</div>
+      <div style="margin-top:6px;color:#9a958c">  proof/scrub-response.sample.json</div>
+      <div style="color:#9a958c">  eval/golden-run.txt</div>
+      <div style="margin-top:6px;color:#5aa86a">GATES: PASS (1 warning)</div>
+      <div style="margin-top:4px"><span style="color:#5aa86a">$</span> <span style="background:#d8d4cc;color:#1f1d1a">&nbsp;</span></div>
+    </div>
+  </div>
+</div></x-dc>
+</body>
+</html>
